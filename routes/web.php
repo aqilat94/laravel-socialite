@@ -23,3 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('auth/google', [App\Http\Controllers\SocialiteController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [App\Http\Controllers\SocialiteController::class, 'handleGoogleCallback']);
+
+Route::get('login/{provider}', [App\Http\Controllers\SocialiteController::class, 'redirectToProvider']);
+Route::get('{provider}/callback', [App\Http\Controllers\SocialiteController::class, 'handleProviderCallback']);

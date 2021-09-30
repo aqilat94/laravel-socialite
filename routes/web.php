@@ -26,3 +26,7 @@ Route::get('auth/google/callback', [App\Http\Controllers\SocialiteController::cl
 
 Route::get('login/{provider}', [App\Http\Controllers\SocialiteController::class, 'redirectToProvider']);
 Route::get('{provider}/callback', [App\Http\Controllers\SocialiteController::class, 'handleProviderCallback']);
+
+
+Route::get('auth/facebook', [App\Http\Controllers\SocialiteController::class, 'facebookRedirect']);
+Route::get('auth/facebook/callback', [App\Http\Controllers\SocialiteController::class, 'loginWithFacebook']);

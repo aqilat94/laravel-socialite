@@ -70,7 +70,7 @@
                             </a>
                         </div>
                         <div class="flex items-center justify-end mt-4">
-                            <a href="{{ url('auth/google') }}">
+                            <a href="{{ url('/login/github') }}">
                                 <img src="https://github.githubassets.com/images/modules/open_graph/github-mark.png" style="margin-left: 3em;">
                             </a>
                         </div>

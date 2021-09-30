@@ -25,6 +25,7 @@ class SocialiteController extends Controller
      *
      * @return void
      */
+    //Google
     public function handleGoogleCallback()
     {
         try {
@@ -53,6 +54,7 @@ class SocialiteController extends Controller
         return redirect()->to('/home');
     }
 
+    //Github
     public function redirectToProvider($provider)
     {
         return Socialite::driver($provider)->redirect();
@@ -91,5 +93,19 @@ class SocialiteController extends Controller
             'provider' => $provider,
             'provider_id' => $user->id
         ]);
+    }
+
+    //Facebook
+    public function facebookRedirect()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    
+    public function loginWithFacebook()
+    {
+        $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
+        auth()->login($user);
+        return redirect()->to('/home');
     }
 }
